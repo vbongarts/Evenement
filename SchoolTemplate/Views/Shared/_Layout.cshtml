@@ -16,11 +16,26 @@
     
     <div>
         <section class="festivalone">
-            <a href="link.htm" class="menubutton">Agenda</a>
             <a href="link.htm" class="menubutton">Home</a>
+            <a href="link.htm" class="menubutton">Agenda</a>
             <a href="link.htm" class="menubutton">Galerij</a>
             <a href="link.htm" class="menubutton">Contact</a>
-            <form action="http://www.navinpoeran.com/" id="searchform" method="get"> <div margin-top="10%"><input type="text" id="s" name="s" value="" style="font-size: 16pt"> <input type="submit" value="Zoek je favoriete festival" id="searchsubmit" style="font-size: 13pt"></div></form>
+            <br>
+            </br>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek naar festivals..">
+
+            <ul id="myUL">
+                <li><a href="#">Whoohah</a></li>
+                <li><a href="#">MOMO</a></li>
+
+                <li><a href="#">Paaspop</a></li>
+                <li><a href="#">DGTL Festival</a></li>
+
+                <li><a href="#">Central Park Festival</a></li>
+                <li><a href="#">Pinkpop</a></li>
+                <li><a href="#">Mystery Land </a></li>
+            </ul>
+
         </section>
     </div>
     @RenderBody()
