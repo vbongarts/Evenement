@@ -2,8 +2,27 @@
 <html>
 <head>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" href="~/favicon.jpg" type="image/x-icon" />
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
+
+
+        Festyland
+    
+    <div>
+        <section class="festivalone">
+            <a href="link.htm" class="menubutton">Agenda</a>
+            <a href="link.htm" class="menubutton">Home</a>
+            <a href="link.htm" class="menubutton">Galerij</a>
+            <a href="link.htm" class="menubutton">Contact</a>
+            <form action="http://www.navinpoeran.com/" id="searchform" method="get"> <div margin-top="10%"><input type="text" id="s" name="s" value="" style="font-size: 16pt"> <input type="submit" value="Zoek je favoriete festival" id="searchsubmit" style="font-size: 13pt"></div></form>
+        </section>
+    </div>
     @RenderBody()
 </body>
 </html>

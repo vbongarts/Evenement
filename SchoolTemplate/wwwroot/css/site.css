@@ -1,1 +1,45 @@
-﻿
+﻿body {
+    font-size: 14px;
+    color: #DD10FF;
+    background-color: black;
+    margin-bottom: 10px;
+    margin-left: 190px; 
+    margin-right: 190px;
+    margin-top: 10px;
+    border-color:white;
+    border-style:solid;
+    border-radius: 7px;
+}
+.festivalone {
+    background-image: url(/Img/20190413_Rebirth__MNO-Photo_0102_-1920x1080.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.section { display: inline-block;
+    border-style: dashed;
+    border-radius: 5px 5px 5px 5px;
+    border-bottom: 0px solid white;
+    background-color: black;
+    color: black;
+    text-decoration: none;
+    padding: 15px 10px;
+    position: relative;
+    top: 100px;
+    transition: top 300ms ease;
+}
+.menubutton {
+    width: 200px;
+    margin: 2px;
+    height: 50px;
+    color: #DD10FF;
+    background-color: #010CFF;
+    font-size: 20pt;
+    font-family: Verdana;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 6px;
+    border-top: 2px solid black;
+    border-left: 2px solid #D8E5B7;
+    border-bottom: 2px solid #687D22;
+    border-right: 2px solid #687D22;
+}
