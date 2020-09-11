@@ -1,4 +1,8 @@
-﻿body {
+﻿img {
+    border-radius: 8px;
+    margin-left: 15px;
+}
+body {
     font-size: 14px;
     color: #DD10FF;
     background-color: black;
