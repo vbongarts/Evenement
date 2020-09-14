@@ -3,13 +3,13 @@
     ViewData["Title"] = "Contact";
 }
 <h1> Contact</h1>
- 
-@if(Model !=null) { 
+@if(Model != null) { 
     <p>
-        Je voornaam is: @Model.Voornaam <br/>
-        Je achternaam is: @Model.Achternaam <br/>
+        Je voornaam is: @Model.Voornaam <br/> 
+        Je achternaam is: @Model.Voornaam <br /> 
     </p>
 
+}
     <form method="post">
         <input type="text" name="voornaam" placeholder=" Voornaam" /> <br />
         <input type="text" name="achternaam" placeholder="Achternaam" /> <br />
