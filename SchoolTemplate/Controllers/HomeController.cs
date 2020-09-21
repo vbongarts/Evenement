@@ -85,36 +85,44 @@ namespace SchoolTemplate.Controllers
 
             return festivals[0];
         }
+
+
+        [Route("contact")]
+        public IActionResult Contact()
+        {       
+            return View();
+        }
+
+        [Route("contact")]
+        [HttpPost]
+        public IActionResult Contact(PersonModel model)
+        {
+            // geen valide model? Dan tonen we de foutmeldingen
+            if (!ModelState.IsValid)
+                return View(model);
+
+            // Model is valide. Dus we kunnen opslaan
+            SavePerson(model);
+
+
+            return View();
+        }
+        private void SavePerson(PersonModel person)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(naam, achternaam, emailadres, geb_datum)", conn);
+
+                cmd.Parameters.Add("?voornaam", MySqlDbType.VarChar).Value = person.Voornaam;
+                cmd.Parameters.Add("?achternaam", MySqlDbType.VarChar).Value = person.Achternaam;
+                cmd.Parameters.Add("?email", MySqlDbType.VarChar).Value = person.Email;
+                cmd.Parameters.Add("?geb_datum", MySqlDbType.VarChar).Value = person.Geboortedatum;
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
 
 
 
-[Route("contact")]
-[HttpPost]
-public IActionResult Contact( PersonModel model)
-{
-    // geen valide model? Dan tonen we de foutmeldingen
-    if(!ModelState.IsValid)
-    return View(model);
-
-    // Model is valide. Dus we kunnen opslaan
-    SavePerson(model);
-
-
-    return View();
-}
-private void SavePerson(PersonModel person)
-{
-    using (MySqlConnection conn = new MySqlConnection(connectionString))
-    {
-        conn.Open();
-        MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(naam, achternaam, emailadres, geb_datum)", conn);
-
-        cmd.Parameters.Add("?voornaam", MySqlDbType.VarChar).Value = person.Voornaam;
-        cmd.Parameters.Add("?achternaam", MySqlDbType.VarChar).Value = person.Achternaam;
-        cmd.Parameters.Add("?email", MySqlDbType.VarChar).Value = person.Email;
-        cmd.Parameters.Add("?geb_datum", MySqlDbType.VarChar).Value = person.Geboortedatum;
-        cmd.ExecuteNonQuery();
-    }
-}

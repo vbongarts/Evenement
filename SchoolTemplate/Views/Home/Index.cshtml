@@ -6,3 +6,7 @@
 <h1>@ViewData["id"]</h1>
 Alle festuvals
 <p>Model.Beschrijving</p>
+@foreach(Festival f in Model)
+{
+    <p>@f.Naam</p>
+}

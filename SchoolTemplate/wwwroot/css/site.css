@@ -1,8 +1,4 @@
-﻿img {
-    border-radius: 8px;
-    margin-left: 15px;
-}
-body {
+﻿body {
     font-size: 14px;
     color: #DD10FF;
     background-color: black;
@@ -13,6 +9,9 @@ body {
     border-color:white;
     border-style:solid;
     border-radius: 7px;
+}
+img {
+    margin-left: 160px;
 }
 .festivalone {
     background-image: url(/Img/20190413_Rebirth__MNO-Photo_0102_-1920x1080.jpg);
