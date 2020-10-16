@@ -13,24 +13,83 @@
     <img src="https://lh3.googleusercontent.com/S0XdSkRNncjo7Au8kGzPvVanaFIok7IHEk7XJlVIIL--GQR8wkuA-oeejel4fKRZa5oj5XZbfST_o0PBJ41zbPur_OjPJgeJycQebzSrZ-bGwh8JvlV2q8whLNgdhdZA3CRZ85ty" class:"center">
     <div>
         <section class="festivalone">
-            <a href="link.htm" class="menubutton">Home</a>
-            <a href="link.htm" class="menubutton">Agenda</a>
-            <a href="link.htm" class="menubutton">Galerij</a>
+            <a href="http://localhost:56349" class="menubutton">Home</a>
+            <a href="http://localhost:56349/Agenda" class="menubutton">Agenda</a>
             <a href="http://localhost:56349/contact" class="menubutton">Contact</a>
             <br />
             <br />
             <br />
             <br />
             <br />
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek naar festivals..">
-            <br />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                #myInput {
+                    background-image: url('/css/searchicon.png');
+                    background-position: 10px 12px;
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    font-size: 16px;
+                    padding: 12px 20px 12px 40px;
+                    border: 1px solid #ddd;
+                    margin-bottom: 12px;
+                }
+
+                #myUL {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                    #myUL li a {
+                        border: 1px solid #ddd;
+                        margin-top: -1px; /* Prevent double borders */
+                        background-color: #f6f6f6;
+                        padding: 12px;
+                        text-decoration: none;
+                        font-size: 18px;
+                        color: black;
+                        display: block
+                    }
+
+                        #myUL li a:hover:not(.header) {
+                            background-color: #eee;
+                        }
+            </style>
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for festivals.." title="Type in a festival">
+
+            <ul id="myUL">
+            </ul>
+
+            <script>
+                function myFunction() {
+                    var input, filter, ul, li, a, i, txtValue;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    ul = document.getElementById("myUL");
+                    li = ul.getElementsByTagName("li");
+                    for (i = 0; i < li.length; i++) {
+                        a = li[i].getElementsByTagName("a")[0];
+                        txtValue = a.textContent || a.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            li[i].style.display = "";
+                        } else {
+                            li[i].style.display = "none";
+                        }
+                    }
+                }
+            </script>
             <br />
             <br />
             <br />
             <br />
         </section>
     </div>
-
+    <img src="https://lh3.googleusercontent.com/D6wEUUKVbDUIdbs5IlCh_R5z_Jb6eINRJsqYXl4pG8LW-8Mb8UTOVrOTg2SFFXnk97WnbC8v5R_onnvTHMjd-2cI7vFKBz7C4q7WGiTp_J2hXRnfpeU2sdwR9H84CMSLtMye3NtV">
     @RenderBody()
 </body>
 </html>

@@ -18,12 +18,12 @@ namespace SchoolTemplate.Controllers
             return View(GetFestivals());
         }
 
-        [Route("festival/{id}")]
+        [Route("festival/{id}/{naam}")]
         public IActionResult festival(int id)
         {
             ViewData["id"] = id;
             Festival model = GetFestival(id);
-            return View();
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -31,7 +31,6 @@ namespace SchoolTemplate.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
 
         private List<Festival> GetFestivals()
         {
@@ -66,7 +65,8 @@ namespace SchoolTemplate.Controllers
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                MySqlCommand cmd = new MySqlCommand($"select * from product where id = {id}", conn);
+                MySqlCommand cmd = new MySqlCommand($"select * from festival where id = {id}", conn);
+                conn.Open();
 
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -76,7 +76,8 @@ namespace SchoolTemplate.Controllers
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Naam = reader["Naam"].ToString(),
-                            Beschrijving = reader["Beschrijving"].ToString()
+                            Beschrijving = reader["Beschrijving"].ToString(),
+                            Afbeelding = reader["Afbeelding"].ToString(),
                         };
                         festivals.Add(p);
                     }
@@ -87,9 +88,15 @@ namespace SchoolTemplate.Controllers
         }
 
 
+        [Route("agenda")]
+        public IActionResult Agenda()
+        {
+            return View(GetFestivals());
+        }
+
         [Route("contact")]
         public IActionResult Contact()
-        {       
+        {
             return View();
         }
 
@@ -105,7 +112,7 @@ namespace SchoolTemplate.Controllers
             SavePerson(model);
 
 
-            return View();
+            return Redirect("/gelukt");
         }
         private void SavePerson(PersonModel person)
         {
@@ -123,6 +130,3 @@ namespace SchoolTemplate.Controllers
         }
     }
 }
-
-
-

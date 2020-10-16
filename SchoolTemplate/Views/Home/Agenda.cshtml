@@ -1,0 +1,11 @@
+﻿@using SchoolTemplate.Database;
+@model List<Festival>
+@{
+    ViewData["Title"] = "Agenda";
+}
+<h1>@ViewData["id"]</h1>
+Alle festivals
+@foreach (Festival f in Model)
+{
+    <a href="/festival/@f.Id/@f.Naam">@f.Naam</a>
+}
