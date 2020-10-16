@@ -10,12 +10,8 @@
     border-style:solid;
     border-radius: 7px;
 }
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+img {
+    margin-left: 160px;
 }
 .festivalone {
     background-image: url(/Img/20190413_Rebirth__MNO-Photo_0102_-1920x1080.jpg);
